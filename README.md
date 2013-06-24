@@ -5,7 +5,7 @@ This project is getting started by June 24, 2013. uSSync is one of the projects 
 Technological Research Council of Turkey) for Pardus Software Camp 2013.
 
 <b> Developers </b><br/ >
-<p><b><i>Project Mentor:</i></b> <a href="https://github.com/" target="_blank">Erdal Sivri</a></p>
+<p><b><i>Project Mentor:</i></b> <a href="https://github.com/erdalsivri" target="_blank">Erdal Sivri</a></p>
 <p><b><i>Student Participant:</i></b> <a href="https://github.com/blacksimit" target="_blank">Oğuzhan Ünlü</a></p>
 
 About 
