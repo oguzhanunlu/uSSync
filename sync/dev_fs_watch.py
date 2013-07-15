@@ -7,7 +7,7 @@ import fs_sync
 
 wm = pyinotify.WatchManager()
 
-mask = pyinotify.IN_CREATE | pyinotify.IN_DELETE | IN_MODIFY 
+mask = pyinotify.IN_CREATE | pyinotify.IN_DELETE | pyinotify.IN_MODIFY 
 
 class EventHandler(pyinotify.ProcessEvent):
 
@@ -16,7 +16,8 @@ class EventHandler(pyinotify.ProcessEvent):
     This method prints an informative message if any file is modified, then executes a callback responsible for rsyncing.
     """
         print "Modifying:", event.pathname
-		sync_folder(source,target) 
+	sync_folder(source,target)
+	 
     
     def process_IN_CREATE(self, event):
     """
