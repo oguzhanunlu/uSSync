@@ -4,5 +4,5 @@ This module synchronizes files in one folder to another one in a remote computer
 import os
 import sys
 
-def sync_folder(source, target):
+def sync_folder(source, target, excluded):
     return 1
