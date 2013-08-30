@@ -2,6 +2,7 @@
 This module (sen tamamlarsin artik :))
 """
 import os
+import re
 
 class Exclude(object):
     
@@ -31,15 +32,43 @@ class Exclude(object):
         For instance, readme.txt is excluded if *.txt or 
         readme.txt is inside the excluded file. 
         """
-        # [erdal] bu .gitignore'un yaptigi isi yapacak
-        # eger arguman olarak verilen @file_or_folder
-        # "exclude_file" ile arguman verilen dosyanin
-        # icinde geciyorsa True, degilse False return edecek. 
-        # dosyanin satirlari self.excluded listesinin icinde
-        # olacak. *.txt, *.c v.b. ifadelere destek vermesi lazim. 
-        # simdilik sadece dosya ismine gore tam dogru calismayan
-        # bir satir yazdim. relative/absolute olma durumlarina
-        # gore uygun bir sey yazmak gerekiyor. 
-        return file_or_folder in self.excluded or \
-                os.path.basename(file_or_folder) in self.excluded
+        for line in self.excluded:
+            if file_or_folder == line:
+                return True
+            if os.path.basename(file_or_folder) == line:
+                return True
+            regex = line.replace('.', '\.').replace('?', '.').replace('*', '.*')
+            regex = '^' + regex + '$'
+            if re.match(regex, file_or_folder):
+                return True
+        return False
+        #return file_or_folder in self.excluded or \
+        #        os.path.basename(file_or_folder) in self.excluded
+
+
+
+def test(file_or_folder, excluded):
+    exclude = Exclude('')
+    exclude.excluded = excluded
+    return exclude.is_excluded(file_or_folder)
+
+def test_main(args):
+    excluded = [
+        '*.txt', 'hw?.c', 'README',
+    ]
+    assert(test('README', excluded) == True)
+    assert(test('readme.txt', excluded) == True)
+    assert(test('readme', excluded) == False)
+    assert(test('README.c', excluded) == False)
+    assert(test('hw.c', excluded) == False)
+    assert(test('hw2.c', excluded) == True)
+    assert(test('hw2.c', excluded) == True)
+    assert(test('hw.txt', excluded) == True)
+    assert(test('hw12.c', excluded) == False)
+    assert(test('hw12.txt', excluded) == True)
+    print 'All tests OK'
+
+if __name__ == '__main__':
+    import sys
+    test_main(sys.argv[1:])
 

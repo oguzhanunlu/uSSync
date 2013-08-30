@@ -1,61 +1,34 @@
 uSSync Projesi Temmuz 1. Dönem İlerleme Raporu:
 
-
-
 - 15 Temmuz İtibariyle uSSync Projesinin Durumu:
 
-
-
 1) Klasör ve Dosya Değişikliklerini Takip Eden Modül:
-
 uSSync'nin senkronizasyon yapabilmesi için takip ettiği klasörde değişiklik olup olmadığını bilmesi gerekiyor. Bunun için yapılabilecek en basit çözüm her N saniyede bir klasorü ve içindekileri kontrol etmek olacaktır. Biraz daha verimli bir diğer çözüm ise Linux'un sağladığı klasor izleme modülünü kullanmaktır. Bu konuda en iyi bilinen modül inotify (http://linux.die.net/man/7/inotify) isimli modüldür. Projemizi Python'da geliştirdiğimiz için Python'da buna karşılık gelen modülleri araştırdık: 
 
 
-
  * inotify       : https://pypi.python.org/pypi/inotify/0.0.1
-
  * ulif.pynotify : https://pypi.python.org/pypi/ulif.pynotify/0.2
-
  * watchdog      : https://pypi.python.org/pypi/watchdog/0.6.0
-
  * pyinotify     : https://pypi.python.org/pypi/pyinotify/0.9.4
-
  * infi.watchdog : https://pypi.python.org/pypi/infi.watchdog/0.6.3 
-
-
 
 Bunlar içerisinde bize en uygun görünen pyinotify isimli kütüphane oldu. Bu kütüphanenin hem kullanımı kolay hem de bizim için gerekli performans kriterlerini sağlıyor. Bu kütüphanenin örnek kullanımı depoda "sync/dev_fs_watch.py" dosyasında mevcut. 
 
-
-
 2) Senkronizasyon Teknikleri Üzerine İnceleme:
-
 Linux'ta senkronizasyon denilince akla ilk gelen araç "rsync" aracıdır. Biz de bu aracı kullanmaya karar verdik. Python'in subprocess modülü ile "rsync" aracını çalıstırıp takip edilen klasorü USB üzerindeki hedef klasöre senkronize etmeyi başardık. Şimdilik USB yerine yerel harddisk'ten bir klasör kullanıyoruz ama aynı kod USB üzerindeki bir klasör için de çalışacaktır. "rsync" ile yaptığımız hız testleri sonucu hem büyük dosyalar hem de çok sayıda küçük dosyalar için oldukça hızlı çalıştığını gördük. Bu aracın bütün isteklerimizi karşılaması için çalıştığı esnada çıktısını yorumlayıp hangi dosyayı işlediğini belirlememiz gerekiyor. Boylece kullanıcıya grafik arayüzde bilgi verebileceğiz. 
 
-
-
 3) Grafik Arayüzü Denemeleri: 
-
 Grafik arayüzü için kullanacağımız PyQt kütüphanesini geliştirme bilgisayarlarımıza kurup basit bir uygulama oluşturduk. Bu uygulama Linux'ta "bildirim alanı"nda (notification area) icon oluşturan basit bir ekrandan ibaret. 
 
-
-
 4) Komut Satırı Prototip Uygulaması: 
-
 İlk prototipimizi "app1.py" isimli dosya ile oluşturduk. Bu çalıştırılabilir dosya "app.conf" dosyasından konfigurasyonları okuyup belirtilen kaynak klasorden hedef klasöre yedekleme yapıyor. Kaynak klasördeki değişiklikler şimdilik her saniyede bir "rsync" çalıştırılarak belirleniyor. Programın kullanıdığı "senkronizasyon" ve "izleme" modülleri konfigurasyon dosyasından ("app.conf") belirtiliyor. Böylece, farklı senkronizasyon algoritmaları kullanmaya fırsat tanıyor. İlerleyen safhalarda bir bilgisayardan diğerine senkronizasyon seçeneği de sunmak istiyoruz. Transfer HTTP/SSH üzerinden veya Samba/Windows dosya paylaşım mekanizmalarıyla yapılabilir. Bunun için gerekli modüller "sync" ve "watch" klasörlerinin altına koyulacak. 
 
-
-
 Prototip'i çalıştırmak için:
-
     $ ./app1.py [<config-file>]
-
-
 
 "<config-file>" parametresi tercihe bağlı olup varsayılanı "app.config"tir. 
 
 
-
 - İki Haftalık Planlama:
-
 Bu hafta içince "pyinotify" sisteme entegre edilecek ve "rsync"in çıktısı yorumlanıp kullanıcıya senkronizasyon ilerlemesi hakkında bilgi verilecek. Sonraki hafta basit grafik arayüz uygulamamız geliştirilip uygulamanın grafik arayüz ile olan ikinci prototipi çıkarılacaktır. 
+

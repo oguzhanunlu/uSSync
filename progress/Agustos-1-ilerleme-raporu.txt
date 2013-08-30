@@ -1,0 +1,32 @@
+uSSync Projesi Temmuz 2. Dönem İlerleme Raporu:
+
+- 31 Temmuz İtibariyle uSSync Projesinin Durumu:
+
+1) Klasör ve Dosya Değişikliklerini Takip Eden Modül:
+Bu modül tamamlandı. 
+
+2) Senkronizasyon Teknikleri Üzerine İnceleme:
+Senkronizasyon yaparken anlık değişiklikleri takip etmek için kullandığımız "rsync" komutunun detaylı çıktısını yorumlayıp anlık hangi dosyanın hangi durumda olduğunu belirleyen bir modül yazdık. "rsync_wrapper.py" dosyası ile "rsync" ile ilgili olan kısımları diğer kısımlardan soyutlamış olduk. 
+
+3) Grafik Arayüzü Denemeleri:
+QT ile basit bir arayüz oluşturduk ve ana uygulamamızı bu arayüze bağladık. Uygulama açıldığında otomatik olarak konfigürasyonda belirtilen klasörü takip etmeye başlıyor. Ayrıca deneme amaçlı koyduğumuz "Şimdi SEnkronize Et" tuşu ile senkronizasyonu hemen yapıp ilerleme durumunu grafik arayüzde gösterebiliyoruz. İlerleme durumu aktarılan dosya ve yüzde kaçının aktarıldığı bilgilerini içeriyor. 
+
+Uygulamayı çalıştırmak için basit bir betiğimiz var: 
+
+$ python gui.py
+
+Bu şekilde çalıştırıldığında varsayılan olarak "app.config" dosyasını okuyup senkronizasyona başlıyor. 
+
+4) Komut Satırı Prototip Uygulaması:
+Her ne kadar grafik arayüzümüz senkronizasyon yapabilir bir hale geldiyse de komut satırı uygulamamız "app.py" ismiyle depomuzda durmakta. 
+
+- Geçtiğimiz Dönemin Değerlendirmesi:
+Hedeflerimiz içindeki grafik arayüzü senkronizasyon altyapısı bağlama ve senkronizasyon durumunu ekranda canlı olarak gösterme işlerini tamamladık. 
+
+
+- İki Haftalık Planlama:
+Önümüzdeki iki hafta içinde arayüz daha işlevsel hale getirilecek: 
+
+  * "app.config" dosyasındaki parametreler bir arayüz ile gösterilip değitirilebilir olacak. 
+  * İşletim sisteminin "bildirim alanında" uygulamanın logosu görülecek ve çift tıklamayla uygulama açılacak. Ayrıca uygulama küçültüldüğünde veya kapatıldığında burada çalışmaya devam edecek. 
+

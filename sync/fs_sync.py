@@ -2,18 +2,14 @@
 This module synchronizes files in one folder to another one. 
 """
 import subprocess
+from rsync_wrapper import Rsync
 
-def sync_folder(source, target, excluded):
+def sync_folder(source, target, excluded, on_progress=None):
     """
     This method synchronize @source folder to @target folder
     using "rsync". 
     """
-    # TODO: exclude calismiyor sanirim (bakabilir misin?)
-    rsync_cmd = 'rsync -rtvu --delete --exclude "%s" %s/ %s/' % (excluded, source, target)
-    print rsync_cmd
-    p = subprocess.Popen(rsync_cmd, stdout=subprocess.PIPE, shell=True)
-    status = p.wait()
-    output = p.stdout.read()
-    #status = os.system(rsync_cmd)
+    rsync = Rsync(source, target, excluded, on_progress)
+    status = rsync.run()
     return status == 0 # success
 

@@ -1,21 +1,15 @@
 uSSync Projesi Temmuz 2. Dönem İlerleme Raporu:
 
-
-
 - 31 Temmuz İtibariyle uSSync Projesinin Durumu:
-
 
 1) Klasör ve Dosya Değişikliklerini Takip Eden Modül:
 Bu modülün ciddi bir kısmı sona erdi. pyinotify modülü ile klasör izleme ve "oluşturulma", "silinme", "değiştirilme" ve "taşınma" v.b. olayları takip edip gerektiği durumlarda kayıtlı senkronizasyon modülünü çalıştıran bir uygulama oluşturduk. Uygulamamız farklı "klasör takibi" ve "senkronizasyon" modüllerini kolayca ekle/çıkar yapabileceğimiz bir mimaride tasarlandı. Konfigurasyon dosyası aracılığıyla hangi modülün kullanılacağı run-time'da belirleniyor. 
 
-
 2) Senkronizasyon Teknikleri Üzerine İnceleme:
 Bu kısımda yoğun çalışmalarımız oldu. "rsync" komut satırı uygulamasını daha detaylı inceledik ve yeni parametreler ekledik. "rsync" interaktif modda çalıştığı zaman kullanıcıya detaylı ilerleme bilgisi sunuyor ama programatik olarak çalıştırıldığında bunu anlayıp çıktısını kısaltıyor. Bunun üstesinden gelmek için araştırmaya devam ediyoruz. 
 
-
 3) Grafik Arayüzü Denemeleri:
 QT ile arayüz konusunda geliştirme konusunda araştırma yaptık ve deneme amaçlı kodlar yazdık ama henuz somut bir uygulama ortaya çıkmadı. 
-
 
 4) Komut Satırı Prototip Uygulaması:
 Uygulama pyinotify, "ignore file" v.b. eklentilerle daha işlevsel hale getirildi. 

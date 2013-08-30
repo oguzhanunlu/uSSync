@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
+import sys
 from PyQt4 import QtCore, QtGui
+
+from app import USSyncApp
+
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -16,7 +20,29 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
+
 class Ui_MainWindow(object):
+
+    def __init__(self):
+        self.conf_file = "app.conf"
+        self.uSSyncApp = USSyncApp()
+        # start automatically
+        self.uSSyncApp.run_async(self.conf_file, self.onProgress)
+    
+    def onProgress(self, progress):
+        current_file = progress[0]
+        current_status = progress[1]
+        percentage = int(current_status.percentage)
+        print '%s %d%%' % (current_file, percentage)
+        self.progressBar.setProperty("value", percentage)
+        # TODO: bir label koyup su an islenen dosyanin ismi gosterilmeli
+        #self.file_label.setProperty("text", current_file)
+        #       simdilik Progress yazan TextBox'ta gosteriyorum
+        self.label_3.setText(current_file)
+    
+    def onSyncClicked(self):
+        self.uSSyncApp.sync()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.setEnabled(True)
@@ -85,6 +111,7 @@ class Ui_MainWindow(object):
         self.pushButton_3.setGeometry(QtCore.QRect(190, 160, 98, 27))
         self.pushButton_3.setDefault(True)
         self.pushButton_3.setObjectName(_fromUtf8("pushButton_3"))
+        self.pushButton_3.clicked.connect(self.onSyncClicked)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 474, 25))
@@ -124,12 +151,15 @@ class Ui_MainWindow(object):
         self.actionOpen_2.setText(_translate("MainWindow", "Open", None))
 
 
-if __name__ == "__main__":
-    import sys
-    app = QtGui.QApplication(sys.argv)
+
+def main(args):
+    app = QtGui.QApplication(args)
     MainWindow = QtGui.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+
+if __name__ == "__main__":
+    main(sys.argv)
 
