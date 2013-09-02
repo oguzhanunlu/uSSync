@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'final_dev_main.ui'
 #
-# Created: Mon Sep  2 03:25:11 2013
+# Created: Mon Sep  2 04:42:25 2013
 #      by: PyQt4 UI code generator 4.10
 #
 # WARNING! All changes made in this file will be lost!
@@ -84,17 +84,14 @@ class Ui_TabWidget(object):
         self.tab1 = QtGui.QWidget()
         self.tab1.setObjectName(_fromUtf8("tab1"))
         self.checkBox = QtGui.QCheckBox(self.tab1)
-        self.checkBox.setGeometry(QtCore.QRect(210, 240, 151, 22))
+        self.checkBox.setGeometry(QtCore.QRect(210, 210, 151, 22))
         self.checkBox.setObjectName(_fromUtf8("checkBox"))
         self.checkBox_2 = QtGui.QCheckBox(self.tab1)
         self.checkBox_2.setGeometry(QtCore.QRect(40, 240, 171, 22))
         self.checkBox_2.setObjectName(_fromUtf8("checkBox_2"))
         self.checkBox_3 = QtGui.QCheckBox(self.tab1)
-        self.checkBox_3.setGeometry(QtCore.QRect(210, 180, 211, 22))
+        self.checkBox_3.setGeometry(QtCore.QRect(210, 180, 221, 22))
         self.checkBox_3.setObjectName(_fromUtf8("checkBox_3"))
-        self.checkBox_4 = QtGui.QCheckBox(self.tab1)
-        self.checkBox_4.setGeometry(QtCore.QRect(40, 180, 121, 22))
-        self.checkBox_4.setObjectName(_fromUtf8("checkBox_4"))
         self.pushButton_4 = QtGui.QPushButton(self.tab1)
         self.pushButton_4.setGeometry(QtCore.QRect(370, 300, 51, 27))
         self.pushButton_4.setObjectName(_fromUtf8("pushButton_4"))
@@ -136,6 +133,12 @@ class Ui_TabWidget(object):
         self.pushButton_2.setDefault(True)
         self.pushButton_2.setFlat(False)
         self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
+        self.checkBox_5 = QtGui.QCheckBox(self.tab1)
+        self.checkBox_5.setGeometry(QtCore.QRect(40, 180, 151, 22))
+        self.checkBox_5.setObjectName(_fromUtf8("checkBox_5"))
+        self.checkBox_6 = QtGui.QCheckBox(self.tab1)
+        self.checkBox_6.setGeometry(QtCore.QRect(40, 210, 151, 22))
+        self.checkBox_6.setObjectName(_fromUtf8("checkBox_6"))
         TabWidget.addTab(self.tab1, _fromUtf8(""))
 
         self.retranslateUi(TabWidget)
@@ -153,8 +156,7 @@ class Ui_TabWidget(object):
         TabWidget.setTabText(TabWidget.indexOf(self.tab), _translate("TabWidget", "Basic", None))
         self.checkBox.setText(_translate("TabWidget", "Always Checksum", None))
         self.checkBox_2.setText(_translate("TabWidget", "Preserve permissions", None))
-        self.checkBox_3.setText(_translate("TabWidget", "Show Detailed Progress", None))
-        self.checkBox_4.setText(_translate("TabWidget", "Reverse Sync", None))
+        self.checkBox_3.setText(_translate("TabWidget", "Preserve Time", None))
         self.pushButton_4.setText(_translate("TabWidget", "New", None))
         self.label_4.setText(_translate("TabWidget", "   Source", None))
         self.label_5.setText(_translate("TabWidget", "  Destination", None))
@@ -162,6 +164,8 @@ class Ui_TabWidget(object):
         self.toolButton_4.setText(_translate("TabWidget", "...", None))
         self.pushButton.setText(_translate("TabWidget", "Open", None))
         self.pushButton_2.setText(_translate("TabWidget", "Sync Now", None))
+        self.checkBox_5.setText(_translate("TabWidget", "Disable Recursion", None))
+        self.checkBox_6.setText(_translate("TabWidget", "Verbose ", None))
         TabWidget.setTabText(TabWidget.indexOf(self.tab1), _translate("TabWidget", "Advanced", None))
 
 

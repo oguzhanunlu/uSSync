@@ -190,7 +190,7 @@
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>240</y>
+      <y>210</y>
       <width>151</width>
       <height>22</height>
      </rect>
@@ -217,25 +217,12 @@
      <rect>
       <x>210</x>
       <y>180</y>
-      <width>211</width>
+      <width>221</width>
       <height>22</height>
      </rect>
     </property>
     <property name="text">
-     <string>Show Detailed Progress</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_4">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>180</y>
-      <width>121</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Reverse Sync</string>
+     <string>Preserve Time</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_4">
@@ -377,6 +364,32 @@
     </property>
     <property name="flat">
      <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_5">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>180</y>
+      <width>151</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Disable Recursion</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_6">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>210</y>
+      <width>151</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Verbose </string>
     </property>
    </widget>
   </widget>
