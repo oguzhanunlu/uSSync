@@ -5,9 +5,10 @@ import sys
 from PyQt4 import QtGui
 
 def tray_icon(app):
-    trayIcon = QtGui.QSystemTrayIcon(QtGui.QIcon("uSSync.png"), app)
+    trayIcon = QtGui.QSystemTrayIcon(QtGui.QIcon("images/uSSync.png"), app)
     menu = QtGui.QMenu('uSSync')
-    exitAction = menu.addAction("Exit")
+    openAction = menu.addAction('Open')
+    exitAction = menu.addAction('Exit')
     trayIcon.setContextMenu(menu)
     trayIcon.showMessage('uSSync is running!', 'Click to open window\nRight click for menu')
     trayIcon.show()

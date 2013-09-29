@@ -3,7 +3,7 @@
 
 import sys
 
-from gui import dev_main
+from gui import final_dev_main
 
-dev_main.main(sys.argv)
+final_dev_main.main(sys.argv)
 

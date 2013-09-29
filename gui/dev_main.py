@@ -22,7 +22,7 @@ except AttributeError:
 
 
 class Ui_MainWindow(object):
-
+    
     def __init__(self):
         self.conf_file = "app.conf"
         self.uSSyncApp = USSyncApp()
@@ -42,7 +42,7 @@ class Ui_MainWindow(object):
     
     def onSyncClicked(self):
         self.uSSyncApp.sync()
-
+    
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.setEnabled(True)
@@ -134,7 +134,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
+    
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "uSSync Test App", None))
         self.toolButton.setText(_translate("MainWindow", "...", None))
