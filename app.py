@@ -46,7 +46,24 @@ class USSyncApp(object):
         else:
             raise Exception('sync_module not loaded')
     
+    def create_default_conf(self, conf_file):
+        confs = {
+            'watch': 'dev_fs_watch',
+            'sync': 'fs_sync',
+            'source_folder': '~/source',
+            'target_folder': '~/target',
+            'verbose': 'True',
+            'checksum': 'False',
+            'preserve_permissions': 'True',
+            'preserve_time': 'True',
+            'disable_recursion': 'False',
+        }
+        with open(conf_file, 'w+') as f:
+            conf.write_conf(confs, f)
+    
     def run(self, conf_file, on_progress):
+        if not os.path.exists(conf_file):
+            self.create_default_conf(conf_file)
         self.on_progress = on_progress
         # read configuration file
         self.configuration = conf.read_conf(conf_file)
@@ -78,7 +95,7 @@ def main(args):
     if '-h' in args:
         usage(args)
         return
-    conf_file = 'app.conf'
+    conf_file = os.path.expanduser('~/app.conf')
     if len(args) >= 2:
         conf_file = args[1]
     app = USSyncApp()

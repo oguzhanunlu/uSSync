@@ -35,13 +35,15 @@ class BackgroundWorker(QtCore.QThread):
 
 
 class Ui_MainWindow(object):
-    CONF_FILE = 'app.conf'
+    CONF_FILE = os.path.expanduser('~/app.conf')
     MAX_FILES = 10
     
     def __init__(self):
         self.conf_file = Ui_MainWindow.CONF_FILE
-        self.confs = conf.read_conf(self.conf_file)
         self.uSSyncApp = USSyncApp()
+        if not os.path.exists(self.conf_file):
+            self.uSSyncApp.create_default_conf(self.conf_file)
+        self.confs = conf.read_conf(self.conf_file)
         self.files = []
         self.times = []
         # start sync automatically on background
@@ -283,6 +285,7 @@ class Ui_MainWindow(object):
     
     def hide(self):
         self.MainWindow.hide()
+        self.showMessage('uSSync is still running. Click exit to quit!')
     
     def exit(self):
         result = QtGui.QMessageBox.question(
