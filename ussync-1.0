@@ -1,0 +1,24 @@
+Package: ussync
+Version: 1.0
+Maintainer: Erdal Sivri <erdal@ceng.metu.edu.tr>
+Depends: rsync, expect-dev
+Description: uSSync, a user-friendly tool that aims to make Pardus 
+ (a Linux distro) users keep their USB storage devices easily synchronized 
+ and save time. 
+File: postinst
+ # !/bin/sh -e
+ export PATH=$PATH:/usr/local/uSSync
+Files: conf.py /usr/local/uSSync/
+ exclude.py /usr/local/uSSync/
+ app.py /usr/local/uSSync/
+ gui.py /usr/local/uSSync/
+ uSSync /usr/local/bin/
+ rsync_wrapper.py /usr/local/uSSync/
+ gui/final_dev_main.py /usr/local/uSSync/
+ gui/__init__.py /usr/local/uSSync/
+ sync/fs_sync.py /usr/local/uSSync/
+ sync/__init__.py /usr/local/uSSync/
+ watch/fs_watch.py /usr/local/uSSync/
+ watch/dev_fs_watch.py /usr/local/uSSync/
+ watch/__init__.py /usr/local/uSSync/
+ gui/images/uSSync.png /usr/share/uSSync/
