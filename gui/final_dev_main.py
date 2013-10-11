@@ -1,3 +1,19 @@
+# This file is part of uSSync. 
+# 
+# This program is free software: you can redistribute it and/or modify 
+# it under the terms of the GNU General Public License as published by 
+# the Free Software Foundation, either version 3 of the License, or 
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful, 
+# but WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License 
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# 
+# Copyright 2013 Erdal Sivri, Oguzhan Unlu
 # -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'final_dev_main.ui'
@@ -323,11 +339,7 @@ class Ui_MainWindow(object):
         self.lblSourceFolder.setText(QtGui.QApplication.translate("MainWindow", "   Source", None, QtGui.QApplication.UnicodeUTF8))
         self.lblDestinationFolder.setText(QtGui.QApplication.translate("MainWindow", "  Destination", None, QtGui.QApplication.UnicodeUTF8))
         self.btnChooseSourceFolder.setText(QtGui.QApplication.translate("MainWindow", "...", None, QtGui.QApplication.UnicodeUTF8))
-        self.textBrowserLog.setHtml(QtGui.QApplication.translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Ubuntu\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
+        self.textBrowserLog.setHtml(QtGui.QApplication.translate("MainWindow", "uSSync", None, QtGui.QApplication.UnicodeUTF8))
         self.lblProgress.setText(QtGui.QApplication.translate("MainWindow", "Progress", None, QtGui.QApplication.UnicodeUTF8))
         self.grpAdvanced.setTitle(QtGui.QApplication.translate("MainWindow", "Advanced Settings", None, QtGui.QApplication.UnicodeUTF8))
         self.chkVerbose.setText(QtGui.QApplication.translate("MainWindow", "Verbose ", None, QtGui.QApplication.UnicodeUTF8))
@@ -337,11 +349,7 @@ class Ui_MainWindow(object):
         self.chkPreservePermissions.setText(QtGui.QApplication.translate("MainWindow", "Preserve permissions", None, QtGui.QApplication.UnicodeUTF8))
         self.btnSave.setText(QtGui.QApplication.translate("MainWindow", "Save", None, QtGui.QApplication.UnicodeUTF8))
         MainWindow.setTabText(MainWindow.indexOf(self.tab), QtGui.QApplication.translate("MainWindow", "Settings", None, QtGui.QApplication.UnicodeUTF8))
-        self.textBrowserStatus.setHtml(QtGui.QApplication.translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Ubuntu\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
+        self.textBrowserStatus.setHtml(QtGui.QApplication.translate("MainWindow", "uSSync", None, QtGui.QApplication.UnicodeUTF8))
         self.lblStatus.setText(QtGui.QApplication.translate("MainWindow", "Recently Synchorized Files", None, QtGui.QApplication.UnicodeUTF8))
         MainWindow.setTabText(MainWindow.indexOf(self.tab1), QtGui.QApplication.translate("MainWindow", "Status", None, QtGui.QApplication.UnicodeUTF8))
 
@@ -358,7 +366,7 @@ def trayIcon(app, ui):
     exitAction = menu.addAction('Exit')
     exitAction.triggered.connect(lambda: ui.exit())
     trayIcon.setContextMenu(menu)
-    trayIcon.showMessage('uSSync is running!', 'Click to open window\nRight click for menu')
+    trayIcon.showMessage('uSSync is running!', 'Click to open window Right click for menu')
     return trayIcon
 
 def main(args):
@@ -375,4 +383,3 @@ def main(args):
 
 if __name__ == "__main__":
     main(sys.argv)
-
