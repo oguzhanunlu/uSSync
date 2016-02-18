@@ -1,15 +1,21 @@
-uSSync
-======
+# uSSync
 
 uSSync,an user-friendly desktop application that aims to make Pardus (a Linux distro) users keep their USB storage devices easily synchronized and save time. Presents instant information regarding synchronization.
 
-How to run
-======
+## Motivation
+I am a freshman at Middle East Technical University. I wanted to spend my summer with participating in national software camp organized by [TUBITAK](https://www.tubitak.gov.tr/en) under supervision of my mentor.
 
-    python gui.py
+## Installation && How To Run
 
-About Pardus Software Camp
-======
+There is a prerequisite to run uSSync, a python package named [pyinotify](https://pypi.python.org/pypi/pyinotify)
+
+To install via pip, run `$ sudo pip install pyinotify`. After that is complete, we are ready to go.
+
+- Clone the project, `git clone git@github.com:oguzhanunlu/uSSync.git`
+- Go to directory, `cd uSSync`
+- Run command `python ussync.py`
+
+## About Pardus Software Camp
 
 For short, this camp is a local version of Google Summer of Code organization which was arranged in Turkey.
 
@@ -28,12 +34,5 @@ This project started by June 24, 2013 and ended successfully by September 26 201
 - Adding GUI
 - Deciding and combining additional features
 - Debugging and last adjustments
-
-
-TO-DO
-======
-- Auto-Recognization feature for USBs
-- Multiple Language support
-
 
 If you have something in mind, please drop me a line at cengoguzhanunlu [at] gmail.com
